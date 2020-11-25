@@ -23,6 +23,8 @@ def get_push_content(date):
     row_data = get_rows_by_date(path=EXCEL_PATH, date=date)
     for row_index in range(1, len(row_data)):
         row_val = row_data[row_index]
+        if len(row_val) <= 0:
+            continue
         head_val = head_data[row_index]
         content += '{}{}{}{}：{}\n\r'.format(PARAGRAPH_QUOTATION, BOLD, row_val, BOLD, head_val)
     content += '请关注！！！'
